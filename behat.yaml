@@ -8,4 +8,5 @@ default:
 
     suites:
         app:
-            contexts: []
+            contexts:
+                - Tests\SelectingTokensContext

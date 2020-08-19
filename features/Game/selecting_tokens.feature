@@ -5,12 +5,12 @@ Feature: Taking tokens from assortment
 
     Background:
         Given the game has been set up for "jesse@pinkman.com", "walter@white.com", "mike@ehrmantraut.com" and "skyler@white.com" merchants
-        And token piles have been set up for 4 merchants
+        And token piles have been set up for them
 
-    @todo
+    @domain
     Scenario Outline: Taking three gem tokens of different color
         Given current turn is for the "jesse@pinkman.com" merchant
-        When I take <colors> gem tokens
+        When I take "<colors>" gem tokens
         And I end turn
         Then I should have in my gem sack <colors> gem tokens
         And in token piles should be <onyx> onyx, <ruby> ruby, <sapphire> sapphire, <diamond> diamond, <emerald> emerald gem tokens and <gold> gold tokens
@@ -22,7 +22,7 @@ Feature: Taking tokens from assortment
     @todo
     Scenario Outline: Taking two gem tokens of the same color
         Given current turn is for the "jesse@pinkman.com" merchant
-        When I take <colors> gem tokens
+        When I take "<colors>" gem tokens
         And I end turn
         Then I should have in my gem sack <colors> gem tokens
         And in token piles should be <onyx> onyx, <ruby> ruby, <sapphire> sapphire, <diamond> diamond, <emerald> emerald gem tokens and <gold> gold tokens
@@ -59,7 +59,7 @@ Feature: Taking tokens from assortment
     Scenario Outline: Cannot end turn if merchant have more then 10 tokens
         Given "walter@white.com" has taken in <first turn>, <second turn> and <third turn> gem tokens
         And current turn is for the "walter@white.com" merchant
-        When I take <colors> gem tokens
+        When I take "<colors>" gem tokens
         Then I should have in my gem sack <colors>, <first turn>, <second turn> and <third turn> gem tokens
         And in token piles should be <onyx> onyx, <ruby> ruby, <sapphire> sapphire, <diamond> diamond, <emerald> emerald gem tokens and <gold> gold tokens
         But I should not be able to end turn
